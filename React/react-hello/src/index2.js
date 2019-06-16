@@ -36,62 +36,10 @@ class Board extends React.Component {
            {this.renderSquare(7)}
           {this.renderSquare(8)}
           {this.renderSquare(9)}
-          {this.renderSquare(10)}
-           {this.renderSquare(11)}
            {this.renderSquare(12)}
         </div>
 
-         <div className="board-row">
 
-
-
-          {this.renderSquare(13)}
-          {this.renderSquare(14)}
-          {this.renderSquare(15)}
-          {this.renderSquare(16)}
-               {this.renderSquare(17)}
-        </div>
-
-        <div className="board-row">
-
-
-
-          {this.renderSquare(18)}
-          {this.renderSquare(19)}
-          {this.renderSquare(20)}
-         {this.renderSquare(21)}
-          {this.renderSquare(22)}
-        </div>
-        <div className="board-row">
-
-
-
-          {this.renderSquare(23)}
-          {this.renderSquare(24)}
-          {this.renderSquare(25)}
-        {this.renderSquare(26)}
-             {this.renderSquare(27)}
-        </div>
-          <div className="board-row">
-
-
-
-          {this.renderSquare(28)}
-            {this.renderSquare(29)}
-          {this.renderSquare(30)}
-          {this.renderSquare(31)}
-       {this.renderSquare(32)}
-        </div>
-          <div className="board-row">
-
-
-             {this.renderSquare(33)}
-          {this.renderSquare(34)}
-          {this.renderSquare(35)}
-          {this.renderSquare(36)}
-            {this.renderSquare(37)}
-
-        </div>
       </div>
     );
   }
@@ -141,33 +89,63 @@ class Game extends React.Component {
     }else{
 
     if(i===0){
-       squares[8] = this.state.xIsNext ? "+" : "+";
-       squares[9] = this.state.xIsNext ? "-" : "-";
-      squares[10] = this.state.xIsNext ? "*" : "*";
-      squares[11] = this.state.xIsNext ? "/" : "/";
-      squares[12] = this.state.xIsNext ? "=" : "=";
-    for (var i = 1; i < 5; i++) {
+      squares[0] = "";
+       squares[8] = "+";
+       squares[9] = "-";
+      squares[10] = "*";
+      squares[11] = "/";
+      squares[12] = "submit!";
+    for (var j = 1; j < 6; j++) {
       var min=1;
-      var max=10;
+      var max=22;
       var random = Math.random() * (+max - +min) + +min;
       var intvalue = Math.floor( random );
+      switch(intvalue){
+case 1:   squares[j] = "B"; break;
+case 2:   squares[j] = "C"; break;
+case 3:   squares[j] = "D"; break;
+case 4:   squares[j] = "F"; break;
+case 5:   squares[j] = "G"; break;
+case 6:   squares[j] = "H"; break;
+case 7:   squares[j] = "J"; break;
+case 8:   squares[j] = "K"; break;
+case 9:   squares[j] = "L"; break;
+case 10:   squares[j] = "M"; break;
+case 11:   squares[j] = "N"; break;
+case 12:   squares[j] = "P"; break;
+case 14:   squares[j] = "R"; break;
+case 13:   squares[j] = "Q"; break;
+case 15:   squares[j] = "S"; break;
+case 16:   squares[j] = "T"; break;
+case 17:   squares[j] = "V"; break;
+case 18:   squares[j] = "W"; break;
+case 19:   squares[j] = "X"; break;
+case 20:   squares[j] = "Y"; break;
+case 21:   squares[j] = "Z"; break;
+default:  squares[j] = "Z"; break;
+      }
       squares[i] = this.state.xIsNext ? intvalue : intvalue;
     }
 
-    for (var i = 5; i < 7; i++) {
-      var min=10;
-   var max=99;
-   var random = Math.random() * (+max - +min) + +min;
-   var intvalue = Math.floor( random );
-   squares[i] = this.state.xIsNext ? intvalue : intvalue;
+    for (var m = 6; m < 9; m++) {
+      var min=1;
+      var max=6;
+        var random = Math.random() * (+max - +min) + +min;
+      var intvalue = Math.floor( random );
+
+      console.log(intvalue);
+      switch(intvalue){
+case 1:   squares[m] = "I"; break;
+case 2:   squares[m] = "A"; break;
+case 3:   squares[m] = "E"; break;
+case 4:   squares[m] = "O"; break;
+case 5:   squares[m] = "U"; break;
+
+      }
+      squares[i] = intvalue;
     }
-    if(i===7){
-    var min=100;
-    var max=999;
-    var random = Math.random() * (+max - +min) + +min;
-    var intvalue = Math.floor( random );
-    squares[i] = this.state.xIsNext ? intvalue : intvalue;
-        }
+  squares[9] = "?";
+
     }
 
     else{
@@ -205,9 +183,7 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+      const desc = move ? 'Go to move #' + move : 'Go to game start';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
