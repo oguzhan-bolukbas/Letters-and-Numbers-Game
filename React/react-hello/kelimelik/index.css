@@ -1,0 +1,86 @@
+body {
+  font: 28px "Century Gothic", Futura, sans-serif;
+  margin: 40px;
+  background-repeat: no-repeat;
+  background-color: #000000;
+}
+
+ol, ul {
+  padding-left: 60px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  color: #ddd;
+  font-size: 72px;
+}
+
+.square {
+  background: #4444ff;
+  border: 2px solid #999;
+  float: left;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 68px;
+  height: 68px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 68px;
+}
+
+.func_buttons {
+  background: #1111aa;
+  border: 2px solid #999;
+  float: left;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 68px;
+  height: 68px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 202px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.file_reader {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  padding-top: 300px;
+  padding-left: 150px;
+}
+
+.score {
+   padding-top: 80px;
+   padding-left: 125px;
+  margin: 0 auto;
+  color: #ddd;
+  font-size: 56px;
+}
